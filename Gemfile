@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'rails', '~> 7.2.2'
+
 gem 'bootsnap', require: false
 gem 'cssbundling-rails'
 gem 'haml-rails'
@@ -7,7 +9,6 @@ gem 'jbuilder'
 gem 'jsbundling-rails'
 gem 'pg'
 gem 'puma'
-gem 'rails', '~> 7.2.2'
 gem 'simple_form'
 gem 'sprockets-rails'
 gem 'stimulus-rails'
