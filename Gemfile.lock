@@ -121,7 +121,6 @@ GEM
     diff-lcs (1.5.1)
     drb (2.2.1)
     erubi (1.13.0)
-    erubis (2.7.0)
     factory_bot (6.5.0)
       activesupport (>= 5.0.0)
     factory_bot_rails (6.4.4)
@@ -144,11 +143,6 @@ GEM
       rainbow
       rubocop (>= 1.0)
       sysexits (~> 1.1)
-    html2haml (2.3.0)
-      erubis (~> 2.7.0)
-      haml (>= 4.0)
-      nokogiri (>= 1.6.0)
-      ruby_parser (~> 3.5)
     i18n (1.14.6)
       concurrent-ruby (~> 1.0)
     io-console (0.7.2)
@@ -301,11 +295,7 @@ GEM
       rubocop (~> 1.61)
       rubocop-rspec (~> 3, >= 3.0.1)
     ruby-progressbar (1.13.0)
-    ruby_parser (3.21.1)
-      racc (~> 1.5)
-      sexp_processor (~> 4.16)
     securerandom (0.3.2)
-    sexp_processor (4.17.3)
     simple_form (5.3.1)
       actionpack (>= 5.2)
       activemodel (>= 5.2)
@@ -363,7 +353,6 @@ DEPENDENCIES
   factory_bot_rails
   haml-rails
   haml_lint
-  html2haml
   jbuilder
   jsbundling-rails
   pg
