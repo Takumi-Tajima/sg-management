@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe '振り返り機能', type: :system do
   let(:daily_report) { create(:daily_report) }
-  let(:task) { create(:task, name: 'タスクの内容') }
+  let!(:task) { create(:task, name: 'タスクの内容') }
 
   it '振り返りを作成することができること' do
     visit daily_report_path(daily_report)
@@ -13,8 +13,8 @@ RSpec.describe '振り返り機能', type: :system do
     fill_in '問題',	with: '問題をここに書く'
     fill_in '次やること',	with: '次やることをここに書く'
     expect do
-      click_on '保存'
-      expect(page).to have_content '振り返りを保存しました'
+      click_on '登録する'
+      expect(page).to have_content '振り返りを登録しました'
     end.to change(task.retrospectives, :count).by(1)
     expect(page).to have_current_path daily_report_path(daily_report)
     click_link '事実を一言で'
