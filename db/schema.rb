@@ -10,9 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_12_01_230728) do
+ActiveRecord::Schema[7.2].define(version: 2024_12_04_022554) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "chats", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_chats_on_user_id"
+  end
 
   create_table "daily_reports", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -48,6 +55,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_12_01_230728) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "chats", "users"
   add_foreign_key "retrospectives", "tasks"
   add_foreign_key "tasks", "daily_reports"
 end
