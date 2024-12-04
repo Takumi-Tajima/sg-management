@@ -29,7 +29,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_12_04_023105) do
   create_table "messages", force: :cascade do |t|
     t.bigint "chat_id", null: false
     t.integer "role"
-    t.string "content"
+    t.string "content", default: "", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["chat_id"], name: "index_messages_on_chat_id"
