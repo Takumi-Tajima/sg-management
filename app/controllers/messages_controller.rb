@@ -5,13 +5,14 @@ class MessagesController < ApplicationController
   end
 
   def create
-    @message = @chat.messages.build(message_params)
+    @message = @chat.messages.create!(message_params)
 
-    if @message.save
-      redirect_to chat_path(@chat)
-    else
-      render :new, status: :unprocessable_entity
-    end
+    openai_client = OpenaiClient.new
+    ai_response = openai_client.chat_with_openai(@message.content)
+
+    @chat.messages.create!(role: ai_response[:role], content: ai_response[:content])
+
+    redirect_to chat_path(@chat)
   end
 
   private
