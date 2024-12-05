@@ -2,3 +2,9 @@
 
 %p= @fact.title
 %p= @fact.content
+
+- if @retrospective
+  %p= @retrospective.potential
+  %p= @retrospective.try
+
+= link_to '振り返り', new_daily_report_fact_retrospective_path(@daily_report, @fact)

@@ -1,9 +1,10 @@
 class DailyReports::FactsController < ApplicationController
   before_action :set_task, only: %i[new]
-  before_action :set_daily_report, only: %i[new create]
+  before_action :set_daily_report, only: %i[show new create]
   before_action :set_fact, only: %i[show]
 
   def show
+    @retrospective = Retrospective.find_by(fact_id: @fact.id)
   end
 
   def new

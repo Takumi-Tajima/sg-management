@@ -1,3 +1,3 @@
 class Retrospective < ApplicationRecord
-  belongs_to :task
+  belongs_to :fact
 end
