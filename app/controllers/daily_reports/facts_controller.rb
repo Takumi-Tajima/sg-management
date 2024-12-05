@@ -5,6 +5,7 @@ class DailyReports::FactsController < ApplicationController
 
   def show
     @retrospective = Retrospective.find_by(fact_id: @fact.id)
+    @messages = Message.where(fact_id: @fact.id)
   end
 
   def new

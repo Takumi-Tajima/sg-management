@@ -8,3 +8,9 @@
   %p= @retrospective.try
 
 = link_to '振り返り', new_daily_report_fact_retrospective_path(@daily_report, @fact)
+
+= link_to 'チャット', new_daily_report_fact_message_path(@daily_report, @fact)
+
+- if @messages
+  - @messages.each do |message|
+    %p= message.content
