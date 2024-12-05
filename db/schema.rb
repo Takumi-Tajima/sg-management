@@ -10,13 +10,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_11_30_120030) do
+ActiveRecord::Schema[7.2].define(version: 2024_12_04_023105) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "chats", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_chats_on_user_id"
+  end
 
   create_table "daily_reports", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.bigint "chat_id", null: false
+    t.integer "role"
+    t.string "content", default: "", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["chat_id"], name: "index_messages_on_chat_id"
+  end
+
+  create_table "retrospectives", force: :cascade do |t|
+    t.bigint "task_id", null: false
+    t.string "fact", default: "", null: false
+    t.string "fact_detail", default: "", null: false
+    t.string "potential", default: "", null: false
+    t.string "try", default: "", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["task_id"], name: "index_retrospectives_on_task_id"
   end
 
   create_table "tasks", force: :cascade do |t|
@@ -37,5 +64,8 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_30_120030) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "chats", "users"
+  add_foreign_key "messages", "chats"
+  add_foreign_key "retrospectives", "tasks"
   add_foreign_key "tasks", "daily_reports"
 end

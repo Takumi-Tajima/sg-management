@@ -3,4 +3,7 @@
 %h2.fs-3 今日やったこと
 
 - @tasks.each do |task|
-  %p= task.name
+  = task.name
+  = link_to '振り返り', new_daily_report_retrospective_path(params[:id], task_id:task.id), class: 'btn btn-primary'
+  - task.retrospectives.each do |retrospective|
+    =link_to retrospective.fact, daily_report_retrospective_path(params[:id], retrospective)

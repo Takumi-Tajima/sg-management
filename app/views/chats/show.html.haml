@@ -1,0 +1,6 @@
+%h1.fs-2 チャットの詳細画面だよ
+
+- @messages.each do |message|
+  %p= message.content
+
+= link_to 'メッセージを送信する', new_chat_message_path(@chat), class: 'btn btn-primary'

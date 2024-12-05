@@ -1,0 +1,7 @@
+= simple_form_for(retrospective, url: daily_report_retrospectives_path(daily_report)) do |f|
+  = f.input :task_id, as: :hidden, input_html: { value: @task.id }
+  = f.input :fact
+  = f.input :fact_detail
+  = f.input :potential
+  = f.input :try
+  = f.button :submit, class: 'btn btn-primary'
