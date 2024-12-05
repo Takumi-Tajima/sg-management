@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_12_05_120010) do
+ActiveRecord::Schema[7.2].define(version: 2024_12_05_135706) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -26,6 +26,15 @@ ActiveRecord::Schema[7.2].define(version: 2024_12_05_120010) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["task_id"], name: "index_facts_on_task_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.bigint "fact_id", null: false
+    t.integer "role", null: false
+    t.string "content", default: "", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["fact_id"], name: "index_messages_on_fact_id"
   end
 
   create_table "retrospectives", force: :cascade do |t|
@@ -56,6 +65,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_12_05_120010) do
   end
 
   add_foreign_key "facts", "tasks"
+  add_foreign_key "messages", "facts"
   add_foreign_key "retrospectives", "facts"
   add_foreign_key "tasks", "daily_reports"
 end
