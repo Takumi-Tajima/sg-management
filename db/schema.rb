@@ -10,24 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_12_01_230728) do
+ActiveRecord::Schema[7.2].define(version: 2024_11_30_120030) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "daily_reports", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "retrospectives", force: :cascade do |t|
-    t.bigint "task_id", null: false
-    t.string "fact", default: "", null: false
-    t.string "fact_detail", default: "", null: false
-    t.string "potential", default: "", null: false
-    t.string "try", default: "", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["task_id"], name: "index_retrospectives_on_task_id"
   end
 
   create_table "tasks", force: :cascade do |t|
@@ -48,6 +37,5 @@ ActiveRecord::Schema[7.2].define(version: 2024_12_01_230728) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
-  add_foreign_key "retrospectives", "tasks"
   add_foreign_key "tasks", "daily_reports"
 end
