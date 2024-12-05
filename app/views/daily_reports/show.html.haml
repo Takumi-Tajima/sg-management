@@ -4,6 +4,6 @@
 
 - @tasks.each do |task|
   = task.name
-  = link_to '振り返り', new_daily_report_retrospective_path(params[:id], task_id:task.id), class: 'btn btn-primary'
-  - task.retrospectives.each do |retrospective|
-    =link_to retrospective.fact, daily_report_retrospective_path(params[:id], retrospective)
+  = link_to '事実の追加', new_daily_report_fact_path(params[:id], task_id:task.id), class: 'btn btn-primary'
+  - task.facts.each do |fact|
+    =link_to fact.title, daily_report_fact_path(params[:id], fact)

@@ -8,10 +8,11 @@ ja:
           has_many: "%{record}が存在しているので削除できません"
     attributes:
       retrospective:
-        fact: 事実
-        fact_detail: 事実の詳細
         potential: 問題
         try: 次やること
+      fact:
+        title: 事実
+        content: 事実の詳細
   date:
     abbr_day_names:
     - 日

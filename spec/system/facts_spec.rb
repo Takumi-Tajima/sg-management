@@ -1,10 +1,10 @@
 require 'rails_helper'
 
-RSpec.describe '振り返り機能', type: :system do
+RSpec.describe '事実機能', type: :system do
   let(:daily_report) { create(:daily_report) }
   let!(:task) { create(:task, name: 'タスクの内容') }
 
-  it '振り返りを作成することができること' do
+  it '事実を作成することができること' do
     visit daily_report_path(daily_report)
     expect(page).to have_content 'タスクの内容'
     click_on '事実の追加'
