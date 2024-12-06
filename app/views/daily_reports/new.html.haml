@@ -1,0 +1,7 @@
+%h1.fs-2 日報作成
+
+= simple_form_for @daily_report do |f|
+  = f.input :task_id, as: :hidden, input_html: { value: @task.id }
+  = f.input :title
+  = f.input :content
+  = f.button :submit, class: 'btn btn-primary'

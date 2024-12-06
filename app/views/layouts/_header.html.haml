@@ -1,0 +1,8 @@
+%nav.navbar.navbar-expand-lg.navbar-light.bg-light
+  .container-fluid.justify-content-between
+    %h1.fs-2= link_to 'SG-Management', root_path, class: 'text-decoration-none text-body'
+    .navbar-brand
+      - if user_signed_in?
+        = link_to 'ログアウト', destroy_user_session_path, data: { turbo_method: :delete }, class: 'btn btn-danger'
+      - else
+        = link_to 'ログイン', new_user_session_path, class: 'btn btn-primary'

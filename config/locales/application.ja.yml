@@ -1,0 +1,9 @@
+ja:
+  time:
+    formats:
+      default: "%Y/%m/%d %H:%M:%S"
+  controllers:
+    common:
+      created: "%{model}を登録しました。"
+      updated: "%{model}を編集しました。"
+      destroyed: "%{model}を削除しました。"

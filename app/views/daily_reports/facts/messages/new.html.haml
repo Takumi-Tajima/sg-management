@@ -1,0 +1,3 @@
+= simple_form_for(@message, url: daily_report_fact_messages_path(@daily_report, @fact)) do |f|
+  = f.input :content
+  = f.button :submit, class: 'btn btn-primary'

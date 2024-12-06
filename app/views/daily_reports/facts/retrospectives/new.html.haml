@@ -1,0 +1,6 @@
+%h1.fs-2 振り返り作成
+
+= simple_form_for(@retrospective, url: daily_report_fact_retrospective_path(@daily_report, @fact)) do |f|
+  = f.input :potential
+  = f.input :try
+  = f.button :submit, class: 'btn btn-primary'
