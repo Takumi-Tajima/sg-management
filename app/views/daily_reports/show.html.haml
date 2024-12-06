@@ -2,6 +2,8 @@
 
 %h2.fs-3 今日やったこと
 
+= link_to 'タスク追加', new_daily_report_task_path(@daily_report)
+
 - @tasks.each do |task|
   = task.name
   = link_to '事実の追加', new_daily_report_fact_path(params[:id], task_id:task.id), class: 'btn btn-primary'

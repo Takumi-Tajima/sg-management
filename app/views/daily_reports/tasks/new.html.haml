@@ -1,0 +1,5 @@
+%h1.fs-2 タスクの追加
+
+= simple_form_for(@task, url: daily_report_tasks_path(@daily_report)) do |f|
+  = f.input :name
+  = f.button :submit, class: 'btn btn-primary'
