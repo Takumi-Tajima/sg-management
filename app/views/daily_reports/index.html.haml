@@ -1,7 +1,9 @@
-%h1.fs-1 日報一覧
+%h1.fs-1.text-center.mt-4.mb-3 日報一覧
 
-= button_to '日報作成', daily_reports_path, class: 'btn btn-primary'
+= button_to '日報を作成', daily_reports_path, class: 'btn btn-primary mb-3'
 
 - @daily_reports.each do |daily_report|
-  .row
-    = link_to daily_report.created_at, daily_report_path(daily_report)
+  .card.shadow-sm.mb-3
+    .card-body.d-flex.align-items-center
+      .flex-grow-1.fs-4
+        = link_to daily_report.created_at.strftime('%Y/%m/%d'), daily_report_path(daily_report)

@@ -1,7 +1,7 @@
 class DailyReportsController < ApplicationController
   before_action :set_daily_report, only: %i[show]
   def index
-    @daily_reports = DailyReport.default_order
+    @daily_reports = DailyReport.where(user_id: current_user.id).default_order
   end
 
   def show
