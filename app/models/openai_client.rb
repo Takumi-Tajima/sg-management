@@ -9,10 +9,11 @@ class OpenaiClient
     response = @client.chat(
       parameters: {
         model: 'gpt-4',
-        messages: [
-          { role: 'system', content: '日本語で回答してください' },
-          { role: 'user', content: message },
-        ],
+        # messages: [
+        #   { role: 'system', content: '関西弁で回答してください' },
+        #   message,
+        # ],
+        messages: message,
       }
     )
 

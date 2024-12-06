@@ -30,7 +30,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_12_05_135706) do
 
   create_table "messages", force: :cascade do |t|
     t.bigint "fact_id", null: false
-    t.integer "role"
+    t.string "role"
     t.string "content", default: "", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
