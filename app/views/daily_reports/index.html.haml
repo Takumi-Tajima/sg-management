@@ -1,6 +1,6 @@
 %h1.fs-1 日報一覧
 
--# = button_to '日報作成', daily_report_path(daily_report), class: 'btn btn-primary'
+= button_to '日報作成', daily_reports_path, class: 'btn btn-primary'
 
 - @daily_reports.each do |daily_report|
   .row
