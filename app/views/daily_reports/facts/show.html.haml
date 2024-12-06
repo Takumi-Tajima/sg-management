@@ -1,16 +1,21 @@
-%h1.fs-2 振り返りだよ
+%h1.fs-2= @fact.title
 
-%p= @fact.title
-%p= @fact.content
+.card.shadow-sm.mb-3
+  .card-body.d-flex.align-items-center
+    .flex-grow-1.fs-5
+      %p= @fact.content
 
-- if @retrospective
-  %p= @retrospective.potential
-  %p= @retrospective.try
-
-= link_to '振り返り', new_daily_report_fact_retrospective_path(@daily_report, @fact)
-
-= link_to 'チャット', new_daily_report_fact_message_path(@daily_report, @fact)
-
-- if @messages
-  - @messages.each do |message|
-    %p= message.content
+.row.mt-5
+  .col.container
+    .mb-5= link_to '振り返り', new_daily_report_fact_retrospective_path(@daily_report, @fact), class: 'btn btn-primary'
+    - if @retrospective
+      %h2.fs-4 問題
+      %p.ms-5= @retrospective.potential
+      %h2.fs-4 次やること
+      %p.ms-5= @retrospective.try
+  .col.container
+    - if @messages
+      .overflow-y-auto.h-50.border.p-3
+        - @messages.each do |message|
+          %p= message.content
+    .mb-5.text-end= link_to 'チャット', new_daily_report_fact_message_path(@daily_report, @fact), class: 'btn btn-primary'

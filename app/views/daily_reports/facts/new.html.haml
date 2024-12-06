@@ -3,5 +3,5 @@
 = simple_form_for(@fact, url: daily_report_facts_path(@daily_report)) do |f|
   = f.input :task_id, as: :hidden, input_html: { value: @task.id }
   = f.input :title
-  = f.input :content
+  = f.input :content, as: :text
   = f.button :submit, class: 'btn btn-primary'
